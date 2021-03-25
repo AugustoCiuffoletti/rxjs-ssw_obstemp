@@ -8,9 +8,9 @@ const URL =
 
 var city="Pisa";
 
-const temp = ajax(URL + city);
+const temp = ajax(URL + city); //Costruisco l'observable
 
-const subscribe = temp.subscribe(
-  res => console.log(res),
+const subscribe = temp.subscribe( // Collego un subscriber
+  res => document.getElementById("output").innerHTML=res.response.main.temp,
   err => console.error(err)
 );
