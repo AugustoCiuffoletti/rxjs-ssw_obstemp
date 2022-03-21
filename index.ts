@@ -10,5 +10,5 @@ var city="Pisa";
 const obs = ajax(URL + city);
 const subscribe = obs.subscribe({
   next: ( res: AjaxResponse ) => document.getElementById("output").innerHTML=res.response.main.temp,
-  error: ( err: Error ) => console.error(err)
+  error: ( err: Error ) => console.error(err.message)
 });
