@@ -8,7 +8,10 @@ const URL: string =
   "&units=metric&q=";
 var city: string ="Pisa";
 
-const obs: Observable<AjaxResponse> = ajax(URL + city);
+const obs: Observable<AjaxResponse> = ajax({
+  url: URL + city,
+  crossDomain: true
+});
 obs.subscribe({
   next: ( res: AjaxResponse ) => document.getElementById("output").innerHTML=res.response.main.temp,
   error: ( err: Error ) => console.error(err.message)
