@@ -1,5 +1,5 @@
 import { Observable } from "rxjs";
-import { ajax, AjaxResponse } from 'rxjs/ajax';
+import { ajax, AjaxResponse, AjaxError } from 'rxjs/ajax';
 
 const apiKey : string = "d0475be3a1967b1b49dfc02c8128001a";
 const URL: string =
@@ -14,5 +14,5 @@ const obs: Observable<AjaxResponse> = ajax({
 });
 obs.subscribe({
   next: ( res: AjaxResponse ) => document.getElementById("output").innerHTML=res.response.main.temp,
-  error: ( err: Error ) => console.error(err.message)
+  error: ( err: AjaxError ) => console.error(err.message)
 });
